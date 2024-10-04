@@ -1,6 +1,8 @@
 package main
 
 import (
+	"math/rand"
+	"time"
 	"context"
 	"errors"
 	"fmt"
