@@ -1,3 +1,22 @@
+
+package main
+
+import (
+    "math/rand"
+    "time"
+    "context"
+    "fmt"
+    "log"
+    "strings"
+    "errors"
+    "mime"
+    "whatsmeow"
+    "proto"
+    "waE2E"
+    "events"
+)
+
+// Rest of the functions.go content remains the same
 package main
 
 import (
