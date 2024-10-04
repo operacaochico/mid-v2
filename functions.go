@@ -48,7 +48,12 @@ func sendSpoofedReplyThis(chatID types.JID, spoofedID types.JID, msgID string, t
 			},
 		},
 	}
-	resp, err := cli.SendMessage(context.Background(), chatID, newmsg)
+	minDelay := 30
+maxDelay := 45
+delay := time.Duration(minDelay + rand.Intn(maxDelay-minDelay)) * time.Second
+log.Infof("Delaying message send by: %v", delay)
+time.Sleep(delay)
+resp, err := cli.SendMessage(context.Background(), chatID, newmsg)
 	if err != nil {
 		log.Errorf("Error sending reply message: %v", err)
 		return msg, &resp, err
@@ -71,7 +76,12 @@ func sendSpoofedReplyMessage(chatID types.JID, fromID types.JID, msgID string, r
 			},
 		},
 	}
-	resp, err := cli.SendMessage(context.Background(), chatID, msg)
+	minDelay := 30
+maxDelay := 45
+delay := time.Duration(minDelay + rand.Intn(maxDelay-minDelay)) * time.Second
+log.Infof("Delaying message send by: %v", delay)
+time.Sleep(delay)
+resp, err := cli.SendMessage(context.Background(), chatID, msg)
 	if err != nil {
 		log.Errorf("Error sending reply message: %v", err)
 		return msg, &resp, err
@@ -120,7 +130,12 @@ func sendSpoofedReplyImg(chatID types.JID, fromID types.JID, msgID string, file 
 			},
 		},
 	}
-	resp, err := cli.SendMessage(context.Background(), chatID, msg)
+	minDelay := 30
+maxDelay := 45
+delay := time.Duration(minDelay + rand.Intn(maxDelay-minDelay)) * time.Second
+log.Infof("Delaying message send by: %v", delay)
+time.Sleep(delay)
+resp, err := cli.SendMessage(context.Background(), chatID, msg)
 	if err != nil {
 		log.Errorf("Error sending reply message: %v", err)
 		return msg, &resp, err
@@ -152,7 +167,12 @@ func sendSpoofedReplyLocation(chatID types.JID, fromID types.JID, msgID string, 
 			},
 		},
 	}
-	resp, err := cli.SendMessage(context.Background(), chatID, msg)
+	minDelay := 30
+maxDelay := 45
+delay := time.Duration(minDelay + rand.Intn(maxDelay-minDelay)) * time.Second
+log.Infof("Delaying message send by: %v", delay)
+time.Sleep(delay)
+resp, err := cli.SendMessage(context.Background(), chatID, msg)
 	if err != nil {
 		log.Errorf("Error sending reply message: %v", err)
 		return msg, &resp, err
