@@ -25,12 +25,22 @@ const fetchGids = async () => {
 };
 
 // Função para ler o arquivo .txt e enviar mensagens
+
 const sendForm = async () => {
+    const minDelay = parseInt(document.getElementById('minDelay').value, 10) * 1000;
+    const maxDelay = parseInt(document.getElementById('maxDelay').value, 10) * 1000;
+
+    // Function to get a random delay between min and max
+    const getRandomDelay = () => Math.floor(Math.random() * (maxDelay - minDelay + 1)) + minDelay;
+
+    
     const form = document.querySelector("form");
 
     let spf_msg = form.elements["spf_msg"].value;
     let rpl_msg = form.elements["rpl_msg"].value;
-    let delaySeconds = parseInt(form.elements["delay"].value);  // Captura o delay em segundos
+    let minDelay = parseInt(form.elements["min_delay"].value);
+    let maxDelay = parseInt(form.elements["max_delay"].value);
+    let delaySeconds = Math.floor(Math.random() * (maxDelay - minDelay + 1)) + minDelay;  // Captura o delay em segundos
 
     const fileInput = document.getElementById("fileInput");
     const file = fileInput.files[0];
